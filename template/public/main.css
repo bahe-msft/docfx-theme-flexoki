@@ -1,0 +1,348 @@
+/*
+ * DocFX Flexoki. Copyright (c) 2026 DocFX Flexoki contributors.
+ * Flexoki palette: Copyright (c) 2023 Steph Ango.
+ * Inspired by Starlight Theme Flexoki: Copyright (c) 2025-present Chris Swithinbank.
+ * MIT licenses and full attribution: see LICENSE and THIRD_PARTY_NOTICES.md
+ * in the repository root. Retain both notices when redistributing this theme.
+ *
+ * DocFX modern loads this stylesheet after docfx.min.css. Do not wrap these
+ * rules in a cascade layer: DocFX's own styles are unlayered.
+ */
+
+:root,
+:root[data-bs-theme='light'] {
+  color-scheme: light;
+  --fx-paper: #fffcf0;
+  --fx-ink: #100f0f;
+  --fx-surface: #f2f0e5;
+  --fx-surface-strong: #e6e4d9;
+  --fx-border: #dad8ce;
+  --fx-table-rule: #cecdc3;
+  --fx-muted: #6f6e69;
+  --fx-accent: #1c6c66; /* cyan-700: change this and the RGB value below to choose another accent */
+  --fx-accent-soft: #ddf1e4;
+  --fx-accent-hover: #24837b;
+  --fx-orange: #9d4310;
+  --fx-orange-soft: #ffe7ce;
+  --fx-blue: #1a4f8c;
+  --fx-blue-soft: #e1eceb;
+  --fx-green: #536907;
+  --fx-green-soft: #edeecf;
+  --fx-purple: #4f3685;
+  --fx-purple-soft: #f0eaec;
+  --fx-red: #942822;
+  --fx-red-soft: #ffe1d5;
+  --fx-code-bg: #fffcf0;
+
+  /* Bootstrap tokens used by DocFX's navbar, utilities, forms, and search. */
+  --bs-body-bg: var(--fx-paper);
+  --bs-body-bg-rgb: 255, 252, 240;
+  --bs-body-color: var(--fx-ink);
+  --bs-body-color-rgb: 16, 15, 15;
+  --bs-secondary-color: var(--fx-muted);
+  --bs-secondary-bg: var(--fx-surface-strong);
+  --bs-tertiary-bg: var(--fx-surface);
+  --bs-border-color: var(--fx-border);
+  --bs-link-color: var(--fx-accent);
+  --bs-link-color-rgb: 28, 108, 102;
+  --bs-link-hover-color: var(--fx-accent-hover);
+  --bs-link-hover-color-rgb: 36, 131, 123;
+  --bs-primary: var(--fx-accent);
+  --bs-primary-rgb: 28, 108, 102;
+  --bs-focus-ring-color: rgb(28 108 102 / 40%);
+}
+
+:root[data-bs-theme='dark'] {
+  color-scheme: dark;
+  --fx-paper: #100f0f;
+  --fx-ink: #cecdc3;
+  --fx-surface: #1c1b1a;
+  --fx-surface-strong: #282726;
+  --fx-border: #403e3c;
+  --fx-table-rule: #343331;
+  --fx-muted: #b7b5ac;
+  --fx-accent: #5abdac; /* cyan-300 */
+  --fx-accent-soft: #122f2c;
+  --fx-accent-hover: #a2dece;
+  --fx-orange: #ec8b49;
+  --fx-orange-soft: #40200d;
+  --fx-blue: #66a0c8;
+  --fx-blue-soft: #12253b;
+  --fx-green: #a0af54;
+  --fx-green-soft: #252d09;
+  --fx-purple: #a699d0;
+  --fx-purple-soft: #261c39;
+  --fx-red: #e8705f;
+  --fx-red-soft: #3e1715;
+  --fx-code-bg: #100f0f;
+
+  --bs-body-bg: var(--fx-paper);
+  --bs-body-bg-rgb: 16, 15, 15;
+  --bs-body-color: var(--fx-ink);
+  --bs-body-color-rgb: 206, 205, 195;
+  --bs-secondary-color: var(--fx-muted);
+  --bs-secondary-bg: var(--fx-surface-strong);
+  --bs-tertiary-bg: var(--fx-surface);
+  --bs-border-color: var(--fx-border);
+  --bs-link-color: var(--fx-accent);
+  --bs-link-color-rgb: 90, 189, 172;
+  --bs-link-hover-color: var(--fx-accent-hover);
+  --bs-link-hover-color-rgb: 162, 222, 206;
+  --bs-primary: var(--fx-accent);
+  --bs-primary-rgb: 90, 189, 172;
+  --bs-focus-ring-color: rgb(90 189 172 / 50%);
+}
+
+body {
+  background: var(--fx-paper);
+  color: var(--fx-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+::selection { background: var(--fx-accent-soft); color: var(--fx-ink); }
+:focus-visible { outline: 2px solid var(--fx-accent); outline-offset: 3px; }
+a { text-underline-offset: .16em; }
+a:hover { color: var(--fx-accent-hover); }
+
+/* Header and DocFX-provided theme picker, search, and navigation. */
+body > header { background: var(--fx-paper) !important; border-bottom-color: var(--fx-border) !important; }
+.navbar {
+  --bs-navbar-color: var(--fx-muted);
+  --bs-navbar-hover-color: var(--fx-accent);
+  --bs-navbar-active-color: var(--fx-ink);
+  --bs-navbar-brand-color: var(--fx-ink);
+  --bs-navbar-brand-hover-color: var(--fx-accent);
+}
+.navbar-brand { font-weight: 600; letter-spacing: -.02em; gap: .45rem; margin-right: 1.5rem; padding-inline-end: 2rem; }
+.navbar-brand #logo { max-height: 2rem; }
+:root[data-bs-theme='dark'] .navbar-brand #logo { outline: 1px solid var(--fx-border); border-radius: .5rem; }
+.navbar .dropdown-menu, .offcanvas, .form-control, .btn, .dropdown-item {
+  --bs-dropdown-bg: var(--fx-surface);
+  --bs-dropdown-link-color: var(--fx-ink);
+  --bs-dropdown-link-hover-bg: var(--fx-accent-soft);
+  --bs-dropdown-link-hover-color: var(--fx-accent);
+}
+.form-control { background-color: var(--fx-surface); border-color: var(--fx-border); color: var(--fx-ink); }
+.form-control:focus { background-color: var(--fx-paper); border-color: var(--fx-accent); color: var(--fx-ink); box-shadow: 0 0 0 .2rem var(--bs-focus-ring-color); }
+.form-control::placeholder { color: var(--fx-muted); opacity: 1; }
+
+/* DocFX's left TOC (the site navigation), including the filter and mobile offcanvas. */
+body[data-layout='conceptual'] > main > .toc-offcanvas,
+body[data-layout=''] > main > .toc-offcanvas { max-width: 290px; }
+.toc { padding-top: .3rem; }
+.toc ul { font-size: .875rem; }
+.toc li { margin: .35rem 0; }
+.toc li > a { color: var(--fx-muted); text-decoration: none; }
+.toc li > a:hover, .toc li > a:focus-visible { color: var(--fx-accent); }
+.toc li > a.active, .toc li.active > a, .toc li > a[aria-current='page'] { color: var(--fx-accent); font-weight: 600; }
+.toc span.name-only { color: var(--fx-ink); }
+.toc .expand-stub::before { color: var(--fx-muted); }
+.toc .filter { margin-right: .75rem; }
+.toc .filter .form-control { font-size: .875rem; }
+.offcanvas { --bs-offcanvas-bg: var(--fx-paper); --bs-offcanvas-color: var(--fx-ink); }
+
+/* Document content, breadcrumb, right-hand in-page navigation, and pagination. */
+body > main { gap: 0; }
+body > main > .content { max-width: 100%; }
+article { font-size: clamp(.96rem, .875rem + .24vw, 1.18rem); line-height: 1.65; }
+body[data-layout='landing'] > main > .content > article { max-width: 67.5rem; width: 100%; margin-inline: auto; }
+body[data-layout='landing'] > main > .content > article > :not(.fx-hero) { max-width: 58rem; margin-inline: auto; }
+/* Sample landing hero. Kept separate from the reusable DocFX layout. */
+article .fx-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+article .fx-hero-eyebrow { margin-bottom: .8em; color: var(--fx-accent); font-weight: 600; }
+article .fx-hero h1 { margin: 0 0 .35em; font-size: clamp(2.8rem, 4.5vw, 4.25rem); line-height: 1.12; letter-spacing: -.04em; }
+article .fx-hero-tagline { max-width: 38ch; margin-bottom: 1.5em; font-size: clamp(1.1rem, 1rem + .4vw, 1.4rem); line-height: 1.7; }
+article .fx-hero-art { display: block; width: 100%; max-width: 24rem; height: auto; margin-inline: auto; }
+article .fx-hero .fx-hero-actions { margin-bottom: 0; }
+article .fx-hero-actions a.btn { display: inline-flex; align-items: center; gap: .5em; }
+article :is(h1, h2, h3, h4, h5, h6) { color: var(--fx-ink); font-weight: 500; line-height: 1.25; letter-spacing: -.025em; }
+article h1 { font-size: clamp(2rem, 1.6rem + 1vw, 2.65rem); margin-bottom: .75em; }
+article h2 { font-size: 1.65em; margin-top: 1.6em; }
+article h3 { font-size: 1.3em; margin-top: 1.5em; }
+article :is(p, ul, ol, dl, table, pre, blockquote) { margin-bottom: 1.15em; }
+article li + li { margin-top: .25em; }
+article a:not(.btn) { color: var(--fx-ink); text-decoration-color: var(--fx-muted); }
+article a:not(.btn):hover { color: var(--fx-accent); text-decoration-color: var(--fx-accent); }
+.breadcrumb { color: var(--fx-muted); }
+.breadcrumb a { color: var(--fx-muted); }
+.breadcrumb a:hover { color: var(--fx-accent); }
+.affix { color: var(--fx-muted); }
+.affix h5, .affix h6 { color: var(--fx-ink); font-weight: 600; letter-spacing: 0; text-transform: none; }
+.affix a { color: var(--fx-muted); }
+.affix a:hover, .affix a.active { color: var(--fx-accent); }
+.contribution a, .next-article a { color: var(--fx-accent); }
+.next-article { border-color: var(--fx-border) !important; }
+.next-article > div > span { color: var(--fx-muted); }
+body > footer { border-color: var(--fx-border) !important; color: var(--fx-muted) !important; }
+body > footer a { color: var(--fx-accent); }
+
+/* Rendered Markdown and DocFX callouts. */
+article blockquote { border-left: 2px solid var(--fx-border); color: var(--fx-muted); }
+article :not(pre) > code, article :not(pre) > kbd {
+  color: var(--fx-ink);
+  background: var(--fx-surface-strong);
+  border-radius: .2em;
+  padding: .12em .28em;
+}
+article pre { border: 3px solid var(--fx-surface-strong); border-radius: .25rem; background: var(--fx-code-bg); overflow-x: auto; }
+article pre code { font-size: .875em; line-height: 1.55; }
+article pre > .code-action { background: var(--fx-surface); border-radius: .3rem; }
+/* Starlight-style Markdown tables: horizontal rules only, no boxed cells. */
+article table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--fx-ink);
+}
+/* DocFX adds Bootstrap's .table and .table-bordered classes in the browser. */
+article table.table-bordered > :not(caption) > * { border: 0; }
+article table > :not(caption) > * > *,
+article table.table > :not(caption) > * > * {
+  padding: .5em 1em .5em 0;
+  border: 0;
+  border-bottom: 1px solid var(--fx-table-rule);
+  background: transparent;
+  box-shadow: none;
+  color: var(--fx-ink);
+}
+article table th { font-weight: 600; }
+/* Native disclosures follow the reference's quiet rule and indented content. */
+article details { border-inline-start: 2px solid var(--fx-table-rule); padding-inline-start: 1rem; }
+article details > summary {
+  display: block;
+  cursor: pointer;
+  font-weight: 600;
+  margin-inline-start: -.5rem;
+  padding-inline-start: .5rem;
+}
+article details > summary::before {
+  content: '';
+  display: inline-block;
+  width: .42em;
+  height: .42em;
+  margin-inline: 0 .75em;
+  border-inline-end: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  vertical-align: .15em;
+}
+article details[open] > summary::before { transform: rotate(45deg); vertical-align: .25em; }
+article details[open] > summary { margin-bottom: 1rem; }
+article details > summary:focus { outline: 2px solid var(--fx-ink); outline-offset: 0; border-radius: .25rem; }
+article details > :last-child { margin-bottom: 0; }
+/* Starlight-like tabs: underline only, with unboxed content. */
+article .tabGroup > ul[role='tablist'] { border-bottom: 2px solid var(--fx-table-rule); margin-bottom: 0; }
+article .tabGroup > ul[role='tablist'] > li { display: flex; margin: 0; }
+article .tabGroup [role='tab'] {
+  padding: .25em 1.12em;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--fx-muted);
+  text-decoration: none;
+}
+article .tabGroup [role='tab']:hover { color: var(--fx-accent); }
+article .tabGroup [role='tab'][aria-selected='true'] {
+  background: transparent;
+  box-shadow: 0 2px 0 var(--fx-accent);
+  color: var(--fx-ink);
+  font-weight: 600;
+}
+article .tabGroup > section { margin-top: 1rem; padding: 0; border: 0; border-radius: 0; background: transparent; }
+/* DocFX modern has Bootstrap buttons; these are still ordinary <a href> links. */
+article .fx-link-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-bottom: 1.5em; }
+article a.btn {
+  border-radius: 999rem;
+  padding: .65em 1.1em;
+  font-size: inherit;
+  text-decoration: none;
+}
+article a.btn-primary { background: var(--fx-accent); border-color: var(--fx-accent); color: var(--fx-paper); }
+article a.btn-primary:hover { background: var(--fx-accent-hover); border-color: var(--fx-accent-hover); color: var(--fx-paper); }
+article a.btn-outline-secondary { background: transparent; border-color: var(--fx-ink); color: var(--fx-ink); }
+article a.btn-outline-secondary:hover { background: var(--fx-accent-soft); border-color: var(--fx-accent); color: var(--fx-accent); }
+article a.btn-link { color: var(--fx-ink); border-color: transparent; }
+article a.btn-link:hover { color: var(--fx-accent); }
+article a.btn:focus-visible { outline: 2px solid var(--fx-accent); box-shadow: none; }
+article .alert { border: 0; border-radius: .25rem; color: var(--fx-ink); background: var(--fx-surface); padding: 1em 1.25em; }
+article .alert h5 { color: inherit; font-size: .95em; text-transform: none; }
+article .alert-info, article .alert-primary { background: var(--fx-blue-soft); }
+article .alert-info h5, article .alert-primary h5 { color: var(--fx-blue); }
+article .alert-tip, article .alert-success, article .alert.TIP { background: var(--fx-green-soft); }
+article .alert-tip h5, article .alert-success h5, article .alert.TIP h5 { color: var(--fx-green); }
+article .alert-warning { background: var(--fx-orange-soft); }
+article .alert-warning h5 { color: var(--fx-orange); }
+article .alert-danger { background: var(--fx-red-soft); }
+article .alert-danger h5 { color: var(--fx-red); }
+article .alert-important, article .alert.IMPORTANT { background: var(--fx-purple-soft); }
+article .alert-important h5, article .alert.IMPORTANT h5 { color: var(--fx-purple); }
+
+/* DocFX uses highlight.js, not Starlight's Shiki/Expressive Code themes. */
+:root { --fx-syn-comment: #6f6e69; --fx-syn-string: #1c6c66; --fx-syn-keyword: #536907; --fx-syn-control: #af3029; --fx-syn-function: #bc5215; --fx-syn-type: #8e6b01; --fx-syn-number: #5e409d; --fx-syn-property: #205ea6; --fx-syn-global: #a02f6f; --fx-line-highlight: #f2f0e5; }
+:root[data-bs-theme='dark'] { --fx-syn-comment: #878580; --fx-syn-string: #3aa99f; --fx-syn-keyword: #879a39; --fx-syn-control: #e8705f; --fx-syn-function: #da702c; --fx-syn-type: #d0a215; --fx-syn-number: #8b7ec8; --fx-syn-property: #4385be; --fx-syn-global: #ce5d97; --fx-line-highlight: #282726; }
+[data-bs-theme] pre code.hljs { color: var(--fx-ink); background: var(--fx-code-bg); }
+[data-bs-theme] .hljs-comment, [data-bs-theme] .hljs-quote { color: var(--fx-syn-comment); font-style: italic; }
+[data-bs-theme] .hljs-string, [data-bs-theme] .hljs-regexp, [data-bs-theme] .hljs-addition { color: var(--fx-syn-string); }
+[data-bs-theme] .hljs-keyword, [data-bs-theme] .hljs-literal { color: var(--fx-syn-keyword); }
+[data-bs-theme] .hljs-operator, [data-bs-theme] .hljs-deletion, [data-bs-theme] .hljs-selector-tag { color: var(--fx-syn-control); }
+[data-bs-theme] .hljs-title.function_, [data-bs-theme] .hljs-built_in { color: var(--fx-syn-function); }
+[data-bs-theme] .hljs-title.class_, [data-bs-theme] .hljs-type, [data-bs-theme] .hljs-attr { color: var(--fx-syn-type); }
+[data-bs-theme] .hljs-number, [data-bs-theme] .hljs-symbol { color: var(--fx-syn-number); }
+[data-bs-theme] .hljs-attribute, [data-bs-theme] .hljs-property, [data-bs-theme] .hljs-variable.language_ { color: var(--fx-syn-property); }
+[data-bs-theme] .hljs-meta, [data-bs-theme] .hljs-section, [data-bs-theme] .hljs-template-variable { color: var(--fx-syn-global); }
+[data-bs-theme] pre > code .line-highlight { background: var(--fx-line-highlight); }
+
+/* Search and API reference surfaces not found in a Starlight-only site. */
+#search-results { color: var(--fx-ink); }
+#search-results .search-list, #search-results .item-brief { color: var(--fx-muted); }
+#search-results .item-href { color: var(--fx-accent); }
+body[data-yaml-mime='ManagedReference'] article :is(h2.section, h3[data-uid], h4.section) { color: var(--fx-ink); }
+body[data-yaml-mime='ManagedReference'] article .facts { color: var(--fx-muted); }
+
+@media (width <= 767px) {
+  article .fx-hero { grid-template-columns: 1fr; gap: 1.25rem; padding-block: 2rem 3rem; text-align: center; }
+  article .fx-hero-art { order: -1; width: min(70%, 16rem); }
+  article .fx-hero h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  article .fx-hero-tagline { margin-inline: auto; }
+  article .fx-hero-actions { justify-content: center; }
+  .toc { padding: .75rem; }
+  .navbar #navbar .search { width: 100%; }
+  body > main > .content { padding-inline: .75rem; }
+  article h1 { font-size: 2rem; }
+}
+@media print {
+  :root, :root[data-bs-theme='dark'] {
+    color-scheme: light;
+    --fx-paper: #fff;
+    --fx-ink: #100f0f;
+    --fx-surface: #f2f0e5;
+    --fx-surface-strong: #e6e4d9;
+    --fx-border: #dad8ce;
+    --fx-table-rule: #cecdc3;
+    --fx-muted: #6f6e69;
+    --fx-accent: #1c6c66;
+    --fx-code-bg: #fff;
+    --fx-syn-comment: #6f6e69;
+    --fx-syn-string: #1c6c66;
+    --fx-syn-keyword: #536907;
+    --fx-syn-control: #af3029;
+    --fx-syn-function: #bc5215;
+    --fx-syn-type: #8e6b01;
+    --fx-syn-number: #5e409d;
+    --fx-syn-property: #205ea6;
+    --fx-syn-global: #a02f6f;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-body-color-rgb: 16, 15, 15;
+  }
+  article pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+}

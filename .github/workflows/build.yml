@@ -1,0 +1,29 @@
+name: Build sample docs
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Install DocFX
+        run: |
+          dotnet tool install --global docfx --version 2.80.1
+          echo "$HOME/.dotnet/tools" >> "$GITHUB_PATH"
+      - name: Build sample (warnings are errors)
+        run: docfx docfx.json --warningsAsErrors
+      - name: Check generated pages and theme
+        run: |
+          test -s _site/index.html
+          test -s _site/articles/showcase.html
+          test -s _site/api/Flexoki.Sample.Swatch.html
+          test -s _site/public/main.css
+          test -s _site/images/hero.svg
+          test -s LICENSE
+          test -s THIRD_PARTY_NOTICES.md

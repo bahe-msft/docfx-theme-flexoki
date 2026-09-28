@@ -1,0 +1,6 @@
+_site/
+obj/
+**/bin/
+**/obj/
+*.log
+.playwright-cli/
