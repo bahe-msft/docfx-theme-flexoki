@@ -115,7 +115,6 @@ body > header { background: var(--fx-paper) !important; border-bottom-color: var
 }
 .navbar-brand { font-weight: 600; letter-spacing: -.02em; gap: .45rem; margin-right: 1.5rem; padding-inline-end: 2rem; }
 .navbar-brand #logo { max-height: 2rem; }
-:root[data-bs-theme='dark'] .navbar-brand #logo { outline: 1px solid var(--fx-border); border-radius: .5rem; }
 .navbar .dropdown-menu, .offcanvas, .form-control, .btn, .dropdown-item {
   --bs-dropdown-bg: var(--fx-surface);
   --bs-dropdown-link-color: var(--fx-ink);
